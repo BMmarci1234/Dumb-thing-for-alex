@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login with Discord</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #23272a;
+        }
+        .center-login-container {
+            background: #2f3136;
+            padding: 3rem 2.5rem 2.5rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 0 16px #0006;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-title {
+            margin-bottom: 1.4rem;
+            font-size: 2rem;
+            color: #fff;
+        }
+        .login-desc {
+            margin-bottom: 2rem;
+            color: #bbb;
+        }
+        .discord-login-btn {
+            display: flex;
+            align-items: center;
+            padding: 13px 32px;
+            font-size: 1.12rem;
+            color: #fff;
+            background: #5865f2;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.14s;
+            box-shadow: 0 2px 10px #0003;
+        }
+        .discord-login-btn:hover {
+            background: #4752c4;
+        }
+        .discord-login-btn img {
+            width: 28px;
+            height: 28px;
+            margin-right: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-login-container">
+        <div class="login-title">Welcome to the Staff Dashboard</div>
+        <div class="login-desc">Please log in with your Discord account.</div>
+        <a href="/auth/discord" class="discord-login-btn">
+            <img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/discord.svg" alt="Discord" />
+            Login with Discord
+        </a>
+    </div>
+</body>
+</html>

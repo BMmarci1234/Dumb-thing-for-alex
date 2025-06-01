@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-profile">
+            <img id="discord-avatar" src="" alt="Avatar">
+            <div id="discord-username"></div>
+        </div>
+        <nav>
+            <ul>
+                <li data-section="warning" class="sidebar-warning"><i class="bx bx-error-circle"></i> <span>Warning</span></li>
+                <li data-section="kick" class="sidebar-warning"><i class="bx bx-log-out-circle"></i> <span>Kick</span></li>
+                <li data-section="ban" class="sidebar-ban"><i class="bx bx-block"></i> <span>Ban</span></li>
+                <li data-section="logs"><i class="bx bx-list-ul"></i> <span>Logs</span></li>
+                <li data-section="lookup"><i class="bx bx-search"></i> <span>Lookup User</span></li>
+                <li data-section="remove" class="sidebar-remove" style="display:none;"><i class="bx bx-trash"></i> <span>Remove</span></li>
+                <li data-section="addmod" class="sidebar-addmod" style="display:none;"><i class='bx  bx-group'></i>  <span>Manage Moderators</span></li>
+                <li><a href="/logout"><i class="bx bx-log-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Staff Dashboard</h1>
+        </header>
+        <!-- Forms -->
+        <section class="dashboard-section" id="section-warning">
+            <h2>Log a Warning</h2>
+            <form class="punishment-form" data-type="warning">
+                <label>Roblox Username: <input type="text" name="username" required></label>
+                <label>Roblox ID: <input type="text" name="robloxId" required></label>
+                <label>Reason: <input type="text" name="reason" required></label>
+                <button type="submit" class="submit-button">Submit Warning</button>
+            </form>
+        </section>
+        <section class="dashboard-section" id="section-kick">
+            <h2>Log a Kick</h2>
+            <form class="punishment-form" data-type="kick">
+                <label>Roblox Username: <input type="text" name="username" required></label>
+                <label>Roblox ID: <input type="text" name="robloxId" required></label>
+                <label>Reason: <input type="text" name="reason" required></label>
+                <button type="submit" class="submit-button">Submit Kick</button>
+            </form>
+        </section>
+        <section class="dashboard-section" id="section-ban">
+            <h2>Log a Ban</h2>
+            <form class="punishment-form" data-type="ban">
+                <label>Roblox Username: <input type="text" name="username" required></label>
+                <label>Roblox ID: <input type="text" name="robloxId" required></label>
+                <label>Reason: <input type="text" name="reason" required></label>
+                <label>Evidence: <input type="text" name="evidence" required></label>
+                <label>
+                    Ban Type:
+                    <select name="banType" id="banType" required>
+                        <option value="">-- Select --</option>
+                        <option value="temporary">Temporary</option>
+                        <option value="permanent">Permanent</option>
+                    </select>
+                </label>
+                <div id="ban-duration-container" style="display:none;">
+                    <label>Duration: <input type="text" name="duration" id="ban-duration-input" placeholder="e.g., 7d, 1w"></label>
+                </div>
+                <button type="submit" class="submit-button">Submit Ban</button>
+            </form>
+        </section>
+        <section class="dashboard-section" id="section-logs">
+            <h2>Recent Logs</h2>
+            <div id="logs-container"></div>
+        </section>
+        <section class="dashboard-section" id="section-lookup">
+            <h2>Lookup User</h2>
+            <form id="lookup-form">
+                <label>Roblox Username: <input type="text" name="username"></label>
+                <label>Roblox ID: <input type="text" name="robloxId"></label>
+                <button type="submit" class="submit-button">Lookup</button>
+            </form>
+            <div id="lookup-results"></div>
+        </section>
+        <section class="dashboard-section" id="section-remove" style="display:none;">
+            <h2>Remove Punishment</h2>
+            <form id="remove-form">
+                <label>Punishment ID: <input type="number" name="id" required></label>
+                <button type="submit" class="submit-button">Remove</button>
+            </form>
+            <div id="remove-result"></div>
+        </section>
+        <section class="dashboard-section" id="section-addmod" style="display:none;">
+            <h2>Moderator List</h2>
+            <div id="mod-list"></div>
+            <h3>Add New Moderator</h3>
+            <form id="add-mod-form">
+                <label>Roblox Username: <input type="text" name="username" required></label>
+                <label>Roblox ID: <input type="text" name="robloxId" required></label>
+                <button type="submit" class="submit-button">Add Moderator</button>
+            </form>
+            <div id="add-mod-result"></div>
+        </section>
+    </div>
+    <div id="confirmation-modal" class="modal">
+        <div id="modal-content" class="modal-content"></div>
+    </div>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

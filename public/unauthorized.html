@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied • Staff Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            background: #23272a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .unauthorized-panel {
+            background: #2f3136;
+            padding: 2.5rem 3.5rem 2.5rem 3.5rem;
+            border-radius: 18px;
+            box-shadow: 0 0 30px #0008;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 410px;
+        }
+        .unauthorized-panel i {
+            font-size: 3.4rem;
+            color: #ff5c5c;
+            margin-bottom: 0.7rem;
+        }
+        .unauthorized-panel h1 {
+            color: #ff5c5c;
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        .unauthorized-panel p {
+            color: #bbb;
+            margin-bottom: 2.2rem;
+            text-align: center;
+            font-size: 1.08rem;
+        }
+        .back-button {
+            background: #7289da;
+            color: #fff;
+            text-decoration: none;
+            padding: 11px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            transition: background 0.15s, box-shadow 0.15s;
+            box-shadow: 0 2px 12px #0003;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background: #5b6eae;
+        }
+    </style>
+</head>
+<body>
+    <div class="unauthorized-panel">
+        <i class='bx bx-block'></i>
+        <h1>Access Denied</h1>
+        <p>
+            You do not have permission to access this dashboard.<br>
+            If you think this is a mistake, please contact the owner or an administrator.
+        </p>
+        <a href="/" class="back-button"><i class='bx bx-log-in'></i> Return to Login</a>
+    </div>
+</body>
+</html>
