@@ -4,8 +4,8 @@
 
 2. **Clone the repository and install dependencies:**
     ```bash
-    git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-    cd YOUR-REPOSITORY
+    git clone https://github.com/BMmarci1234/Dumb-thing-for-alex
+    cd Dumb-thing-for-alex
     npm install
     ```
 
