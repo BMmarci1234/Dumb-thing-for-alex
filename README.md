@@ -25,13 +25,14 @@
     OWNER_ID=The owner's userId
     COMMUNITY_MANAGER_ID=The community managers id.
     DISCORD_STAFF=Discord staff Id
+    ROBLOX_API_KEY=YOUR_SUPER_SECRET_API_KEY (Just make up a key that roblox API can access it. If anyone knows this code, they can use it to get access to the dashboard)
     ```
 
 4. **Initialize columns (if required) and deploy Discord commands:**
     ```bash
-    node node-add-evidence-column.js
-    node node-robloxId-column.js
-    node node-username-column.js
+    node add-evidence-column.js
+    node add-robloxId-column.js
+    node add-username-column.js
     node bot/clear-commands.js
     node bot/deploy-commands.js
     ```
@@ -43,18 +44,26 @@
     - **Important:**  
       Replace  
       ```lua
-      local url = "https://YOUR_WEB_API_URL/api/moderators"
+      local url = "https://YOUR_WEB_API_URL/api/moderators?apiKey=" .. API_KEY
       ```
       with  
       ```lua
-      local url = "https://YOUR_WEBSITE_DASHBOARD_LINK/api/moderators"
+      local url = "YOUR_LINK_TO_THE_DASHBOARD?apikey=" .. API_KEY
       ```
-      where `YOUR_WEBSITE_DASHBOARD_LINK` is the URL where your dashboard/API is publicly accessible (e.g. `https://yourdomain.com/api/moderators`).
+      Also, replace
+
+      ```lua
+      local API_KEY = "YOUR_SUPER_SECRET_API_KEY"
+      ```
+      with
+      ```lua
+      local API_KEY = "The same secret api key that matches the one in the .env file"
+      ```
 
     - **Put all your game scripts (including `AdminCmds.lua`) inside a `scripts/` folder in your project.**  
       Your project structure should look like:
       ```
-      your-repo/
+      Dumb-thing-for-alex/
         bot/
         scripts/
           AdminCmds.lua
