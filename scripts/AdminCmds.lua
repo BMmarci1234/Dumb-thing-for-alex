@@ -15,8 +15,9 @@ local ADMIN_USER_IDS = {1590751364, 7199856703} -- Full privileges, including un
 
 -- MODERATOR API SYNC (replace your old MOD_USER_IDS logic with everything in this block)
 local MOD_USER_IDS = {0}
+local API_KEY = "YOUR_SUPER_SECRET_API_KEY" -- Set this to match your .env in server.js
 local function fetchModsFromAPI()
-    local url = "https://YOUR_WEB_API_URL/api/moderators" -- <-- Replace with your actual API endpoint
+    local url = "https://YOUR_WEB_API_URL/api/moderators?apiKey=" .. API_KEY -- <-- Use your actual API endpoint and key
     local success, result = pcall(function()
         return HttpService:GetAsync(url)
     end)
