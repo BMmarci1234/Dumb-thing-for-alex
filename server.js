@@ -26,7 +26,8 @@ const {
   REMOVE_INFRACTION_ROLE,
   BAN_PERMISSION_ROLE,
   OWNER_ID,
-  COMMUNITY_MANAGER_ID
+  COMMUNITY_MANAGER_ID,
+  ROBLOX_API_KEY // <-- Add this to your .env
 } = process.env;
 
 const dataDir = path.join(__dirname, 'data');
@@ -163,8 +164,16 @@ app.get('/api/is-community-manager', async (req, res) => {
     res.json({ isCM: roles.includes(COMMUNITY_MANAGER_ID) });
 });
 
-// API: Moderator list
+// API: Moderator list (with Roblox API key support)
 app.get('/api/moderators', async (req, res) => {
+    // Allow if Discord user is a community manager (dashboard), or if Roblox requests with API key
+    const apiKey = req.query.apiKey;
+    if (apiKey && apiKey === ROBLOX_API_KEY) {
+        // Roblox server script access (no Discord session needed)
+        const mods = dbMod.prepare('SELECT * FROM moderators ORDER BY username COLLATE NOCASE').all();
+        return res.json(mods);
+    }
+    // Otherwise require Discord session + CM role
     if (!req.session.user) return res.status(401).json({error: "Unauthorized"});
     const roles = await getUserRoles(discordClient, req.session.user.discordId);
     if (!roles.includes(COMMUNITY_MANAGER_ID)) return res.status(403).json({error: "Forbidden"});
